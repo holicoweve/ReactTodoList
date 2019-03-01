@@ -12,4 +12,16 @@ class TodoHeader extends React.Component {
   }
 }
 
+TodoHeader.proptypes = {
+  title: PropTypes.string,
+  username: PropTypes.string,
+  todoCount: PropTypes.number
+};
+
+TodoHeader.defaultProps = {
+  title: "My Todo List",
+  username: "Guest",
+  todoCount: 0
+};
+
 window.App.TodoHeader = TodoHeader;
