@@ -2,9 +2,10 @@ const { InputField, TodoHeader, TodoList } = window.App;
 
 class TodoApp extends React.Component {
   render() {
+    //const {name, username, todoCount} = this.props;
     return (
       <div>
-        <TodoHeader />
+        <TodoHeader title="Todo List" username="Stephen" todoCount={99} />
         <InputField />
         <TodoList />
       </div>
