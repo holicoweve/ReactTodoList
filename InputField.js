@@ -1,6 +1,8 @@
 class InputField extends React.Component {
   render() {
-    return <input type="text" placeholder="Add Todo Item" />;
+    const {placeholder} = this.props;
+    
+    return <input type="text" placeholder={placeholder} />;
   }
 }
 

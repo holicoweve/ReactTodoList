@@ -6,7 +6,7 @@ class TodoApp extends React.Component {
     return (
       <div>
         <TodoHeader title="Todo List" username="Stephen" todoCount={99} />
-        <InputField />
+        <InputField placeholder='Add Todo item'/>
         <TodoList />
       </div>
     );
