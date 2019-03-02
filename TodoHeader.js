@@ -1,3 +1,6 @@
+//import React from 'react';
+//import PropTypes from 'prop-types';
+
 class TodoHeader extends React.Component {
   render() {
     const { title, username, todoCount } = this.props;
