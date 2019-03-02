@@ -1,9 +1,17 @@
+
+
 const { InputField, TodoHeader, TodoList } = window.App;
 
 const _deleteTodo = (todos, id) => {
-    const index = todos.findIndex((todo)=>todo.id===id);
-    if(index!==-1) todos.splice(index,1);
-    return todos;
+  const index = todos.findIndex(todo => todo.id === id);
+  if (index !== -1) todos.splice(index, 1);
+  return todos;
+};
+
+const _toggleTodo = (todos, id, completed) => {
+  const target = todos.find(todo => todo.id === id);
+  if (target) target.completed = completed;
+  return todos;
 };
 class TodoApp extends React.Component {
   constructor(props, context) {
@@ -44,12 +52,13 @@ class TodoApp extends React.Component {
           onDeleteTodo={(...args) => {
             this.setState({ todos: _deleteTodo(todos, ...args) });
           }}
+          onToggleTodo={(id, completed) =>
+            this.setState({ todos: _toggleTodo(todos, id, completed) })
+          }
         />
       </div>
     );
   }
 }
-
-
 
 window.App.TodoApp = TodoApp;

@@ -11,12 +11,15 @@ class TodoItem extends React.Component {
   }
 
   renderViewMode() {
-    const { title, completed } = this.props;
-    const { onDelete } = this.props;
+    const { title, completed, onDelete, onToggle } = this.props;
 
     return (
       <div>
-        <input type="checkbox" checked={completed} />
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => onToggle && onToggle(!completed)}
+        />
         <span onDoubleClick={this.toggleEditMode}>{title}</span>
         <button onClick={() => onDelete && onDelete()}>x</button>
       </div>
@@ -48,7 +51,8 @@ class TodoItem extends React.Component {
 TodoItem.propTypes = {
   title: PropTypes.string,
   completed: PropTypes.bool,
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+  onToggle: PropTypes.func
 };
 
 window.App.TodoItem = TodoItem;
